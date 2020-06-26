@@ -1,5 +1,5 @@
 # quicktlsproxy
-quick tls proxy getting a certificate from let's encrypt
+minimal quick reverse tls proxy automatically provisioned with a let's encrypt pki certificate.
 ## summary
 I wanted a very quick and easy way to get a reverse http proxy with a valid browser trusted pki certificate up and running without configuring anything.   This project is the result.  It does a few things;
 1. Listens on Port 443 (https) and Port 80 (http).  Listening on http can be disabled.
@@ -9,6 +9,7 @@ I wanted a very quick and easy way to get a reverse http proxy with a valid brow
 5. Minimal docker container.  I typically use ```FROM scratch``` a lot.
 6. Self contained, easily embedded statically linked go binary.
 7. No over complicated configuration, settings, or options.
+
 ## usage
 Lets assume you want to proxy www.domain.com with a valid certificate;\
 For very quick usage, you can use;\
@@ -38,3 +39,6 @@ Please be aware they will all map to the single backend for now.
 ## todo
 - [ ] support tls backend
 - [ ] support multiple backend destinations
+
+## link
+[github](https://github.com/dsbaha/quicktlsproxy/)
