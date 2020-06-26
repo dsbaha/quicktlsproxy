@@ -1,7 +1,7 @@
 # quicktlsproxy
 quick tls proxy getting a certificate from let's encrypt
 ## summary
-I wanted a very quick and easy way to get a reverse http proxy with a valid browser trusted pki certificate up and running without configuring anything.   This project is the result.  It does a few things;\
+I wanted a very quick and easy way to get a reverse http proxy with a valid browser trusted pki certificate up and running without configuring anything.   This project is the result.  It does a few things;
 1. Listens on Port 443 (https) and Port 80 (http).  Listening on http can be disabled.
 2. Obtains a Let's Encrypt Certificate
 3. Caches Let's Encrypt Certificates in /etc/certs by default.  Can be changed by an env variable or cmd option.
@@ -26,7 +26,7 @@ To change the proxy destination, you can use;\
 \
 You can specify multiple domain names for let's encrypt to generate certs for;\
 ```docker run --rm dsbaha/quicktlsproxy www.domain.com domain.com test.domain.com```\
-Please be aware they will all map to the single backend for now.\
+Please be aware they will all map to the single backend for now.
 ## options
 | Name | Description |
 | ------- | ---------- |
