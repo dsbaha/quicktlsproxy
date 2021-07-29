@@ -1,0 +1,27 @@
+# .github/workflows/release.yaml
+name: build-releases
+on: 
+  release:
+    types: [created]
+
+jobs:
+  release-multi-platform:
+    name: release-multi-platform
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [ linux, windows, darwin ]
+        goarch: [ amd64, arm64, arm ]
+        exclude:
+          - goarch: "arm"
+            goos: darwin
+          - goarch: "arm64"
+            goos: "windows"
+    steps:
+    - uses: actions/checkout@v2
+    - uses: wangyoucao577/go-release-action@v1.19
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: ${{ matrix.goos }}
+        goarch: ${{ matrix.goarch }}
+        overwrite: TRUE
