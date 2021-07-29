@@ -18,8 +18,7 @@ var (
 	destination = flag.String("destination", os.Getenv("PROXY_DESTINATION"), "proxy destination; defaults to http://localhost:8080")
 	nohttp      = flag.Bool("nohttp", false, "do not listen on http port 80; defaults to on")
 	certdir     = flag.String("certdir", "/etc/certs", "directory to store certificates; defaults to /etc/certs")
-	quiet       = flag.Bool("quiet", false, "disable logging to console.")
-	debug       = flag.Bool("debug", false, "console log send/receive messages.")
+	version     = "0.0.3"
 	domains     []string
 )
 
@@ -45,7 +44,7 @@ func checkParams() {
 }
 
 func main() {
-	log.Println("Starting quicktlsproxy")
+	log.Println("Starting quicktlsproxy version", version)
 	flag.Parse()
 	checkParams()
 
